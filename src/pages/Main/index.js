@@ -66,6 +66,7 @@ export default class Main extends Component {
                     Repositórios
                 </h1>
                 <Form onSubmit={this.handleSubmit}>
+
                     <input
                         type="text"
                         placeholder="Adicionar repositório"
@@ -79,6 +80,7 @@ export default class Main extends Component {
                             <FaPlus color="#FFF" size={14} />
                         )}
                     </SubmitButton>
+
                 </Form>
                 <List>
                     {repositories.map(repository => (
