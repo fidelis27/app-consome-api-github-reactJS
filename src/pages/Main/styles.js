@@ -7,7 +7,7 @@ export const Form = styled.form`
 
     input {
         flex: 1;
-        border: 1px solid #eee;
+        border: 1px solid ${props => (props.error ? "red" : "#eee")};
         padding: 10px 15px;
         border-radius: 4px;
         font-size: 16px;
@@ -24,6 +24,7 @@ to {
 
 export const SubmitButton = styled.button.attrs(props => ({
     type: "submit",
+    // eslint-disable-next-line no-unneeded-ternary
     disabled: props.loading,
 }))`
     background: #7159c1;
@@ -31,7 +32,7 @@ export const SubmitButton = styled.button.attrs(props => ({
     padding: 0 15px;
     margin-left: 10px;
     border-radius: 4px;
-    display: flex;
+    display: block;
     justify-content: center;
     align-items: center;
 
@@ -59,6 +60,11 @@ export const List = styled.ul`
         justify-content: space-between;
         align-items: center;
 
+        span {
+            min-width: 250px;
+            font-weight: bold;
+        }
+
         & + li {
             border-top: 1px solid #eee;
         }
@@ -67,5 +73,25 @@ export const List = styled.ul`
             color: #7159c1;
             text-decoration: none;
         }
+        button {
+            background: #7159c1;
+            border: 0;
+            color: white;
+            width: 80px;
+            height: 32px;
+            padding: 0 15px;
+            margin-left: 10px;
+            border-radius: 4px;
+            display: block;
+            justify-content: center;
+            align-items: center;
+        }
     }
+`;
+
+export const ErrorType = styled.small`
+    font-size: 14px;
+    color: red;
+    display: block;
+    margin-top: 10px;
 `;
